@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer({ t }) {
   return (
     <footer className="py-12 px-6 border-t border-white/5 bg-background-dark">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
@@ -9,7 +9,7 @@ export default function Footer() {
             </div>
             <span className="font-bold tracking-tight">SEE. Portfolio</span>
           </div>
-          <p className="text-slate-500 text-sm">© {new Date().getFullYear()} Selman Emre Erol. All rights reserved.</p>
+          <p className="text-slate-500 text-sm">© {new Date().getFullYear()} Selman Emre Erol. {t.rights}</p>
         </div>
         <div className="flex gap-8 text-slate-400 text-sm">
           <a className="hover:text-primary transition-colors" href="https://github.com/semreerol" target="_blank" rel="noopener noreferrer">
@@ -19,7 +19,7 @@ export default function Footer() {
             LinkedIn
           </a>
         </div>
-        <p className="text-slate-500 text-xs font-medium">Built with a clean architecture mindset.</p>
+        <p className="text-slate-500 text-xs font-medium">{t.tagline}</p>
       </div>
     </footer>
   )

@@ -1,6 +1,6 @@
-const profileImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuARrsFy8sl0BiZPg8oSTjUQgUQwVtDFN2m5I2MHbxzF6ndZblxee56F7q7guhloQruNcwgBWdY9WJSyW4i_rpwqTf41Tr5ErY6yMdXZZbtCC8u6LtkbZTXtOliFocvOR54PxXJCGYuYoMsldgEXyOaqDtxfCoNbrcUHT4TXSCr2zCVv41wvQvQ-R84vgS5n3gg-bcpdMtZsY_n0oYV_mq5KzrMgXbpA1firDzq3JfSfjm63kXqfTaTVdznfra8cmdDjatfUpX5X5W0G'
+import { profileImage } from '../data'
 
-export default function About() {
+export default function About({ t }) {
   return (
     <section className="py-20 px-6" id="about">
       <div className="max-w-7xl mx-auto">
@@ -17,40 +17,30 @@ export default function About() {
                     alt="Selman Emre Erol"
                     className="w-full h-full object-cover rounded-full"
                     src={profileImage}
+                    onError={(e) => { e.target.src = 'https://placehold.co/400x400/1e293b/833cf6?text=SEE' }}
                   />
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="text-xl font-bold">Engineering Excellence</h3>
-                <p className="text-primary text-sm font-medium">Based in Turkey | Remote</p>
+                <h3 className="text-xl font-bold">{t.title}</h3>
+                <p className="text-primary text-sm font-medium">{t.subtitle}</p>
               </div>
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold tracking-tight">Beyond the Interface</h2>
+              <h2 className="text-3xl font-bold tracking-tight">{t.header}</h2>
               <p className="text-slate-400 text-lg leading-relaxed">
-                Computer Engineering graduate from Trakya University with a strong focus on Mobile Application Development. 
-                I build modern, cross-platform and native apps using Flutter, Swift, and Kotlin, with experience in on-device AI (TensorFlow/OCR) and clean architecture.
+                {t.desc1}
               </p>
               <p className="text-slate-400 text-lg leading-relaxed">
-                I focus on clean code, scalability, and delivering measurable impact through intuitive user interfaces—whether optimizing state management in Flutter or leveraging native Swift for peak performance.
+                {t.desc2}
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-center">
-                  <span className="block text-2xl font-bold text-primary">5+</span>
-                  <span className="text-xs uppercase text-slate-500 font-bold">Projects</span>
-                </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-center">
-                  <span className="block text-2xl font-bold text-primary">Flutter & Swift</span>
-                  <span className="text-xs uppercase text-slate-500 font-bold">Stack</span>
-                </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-center">
-                  <span className="block text-2xl font-bold text-primary">REST & AI</span>
-                  <span className="text-xs uppercase text-slate-500 font-bold">Integration</span>
-                </div>
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-center">
-                  <span className="block text-2xl font-bold text-primary">GDG</span>
-                  <span className="text-xs uppercase text-slate-500 font-bold">Community</span>
-                </div>
+                {t.stats.map((stat, index) => (
+                  <div key={index} className="p-4 rounded-xl bg-white/5 border border-white/5 text-center">
+                    <span className="block text-2xl font-bold text-primary">{stat.value}</span>
+                    <span className="text-xs uppercase text-slate-500 font-bold">{stat.label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

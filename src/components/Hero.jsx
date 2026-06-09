@@ -1,4 +1,4 @@
-export default function Hero() {
+export default function Hero({ t }) {
   return (
     <section className="pt-40 pb-20 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
@@ -8,15 +8,15 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
             </span>
-            Available for Projects
+            {t.status}
           </div>
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[1.1] tracking-tighter">
-            Selman Emre <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-blue">Erol</span>
+            {t.title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-blue">{t.lastName}</span>
           </h1>
           <div className="space-y-4 max-w-lg">
-            <p className="text-xl sm:text-2xl font-semibold text-slate-300">Mobile Developer (Flutter & Swift)</p>
+            <p className="text-xl sm:text-2xl font-semibold text-slate-300">{t.role}</p>
             <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
-              Engineering scalable, high-performance mobile applications with clean architecture and measurable impact.
+              {t.description}
             </p>
           </div>
           <div className="flex flex-wrap gap-4 pt-4">
@@ -24,16 +24,16 @@ export default function Hero() {
               href="#projects"
               className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 group transition-all"
             >
-              View Projects
+              {t.viewProjects}
               <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
             <a
-              href={`${import.meta.env.BASE_URL}Selman%20Emre%20Erol-Cv%20Eng.pdf`}
+              href={t.cvUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="glass px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition-all"
             >
-              Download CV
+              {t.downloadCv}
             </a>
           </div>
         </div>

@@ -10,14 +10,14 @@ const tools = [
   { name: 'React', icon: 'code', iconClass: 'text-accent-blue', bgClass: 'bg-accent-blue/10', borderClass: 'hover:border-accent-blue/50' },
 ]
 
-export default function Stack() {
+export default function Stack({ t }) {
   return (
     <section className="py-20 px-6 bg-slate-900/30" id="stack">
       <div className="max-w-7xl mx-auto space-y-12 text-center">
         <div className="space-y-4">
-          <h2 className="text-4xl font-bold tracking-tight">The Arsenal</h2>
+          <h2 className="text-4xl font-bold tracking-tight">{t.title}</h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Languages: Dart, Swift, Kotlin, Python, JavaScript. Frameworks: Flutter, React, Node, Flask, .NET. Tools I use to build robust mobile and web applications.
+            {t.description}
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
